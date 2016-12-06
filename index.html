@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html ng-app>
+    <head>
+        <title>Training Angular JS 1</title>
+    </head>
+    <body>
+        <!-- Your code here -->
+        <h3 ng-init="name='Hilman Yanuar'">
+            Hello {{ name }}
+            <span ng-bind="name"></span>
+        </h3>
+        <hr>
+        <h3><u><i>Example String</i></u></h3>
+        <h3 data-ng-init="first='Hilman'; last='Yanuar'">
+            Fullname : {{ first }} {{ last }}
+        </h3>
+        <hr>
+        <h3><u><i>Example Numeric</i></u></h3>
+        <h3 data-ng-init="quantity=7; price=100">
+            Total Price : Rp. {{ quantity * price }}
+        </h3>
+        <hr>
+        <h3><u><i>Example Array</i></u></h3>
+        <p data-ng-init="brands=['Tisaba', 'Palaron', 'Sungsang']">
+            Brand One : {{ brands[0] }} <br/>
+            Brand Two : {{ brands[1] }} <br/>
+            Brand Three : {{ brands[2] }}
+        </p>
+        <hr>
+        <h3><u><i>Example ng-if</i></u></h3>
+        <p data-ng-init="brands=['Tisaba', 'Palaron', 'Sungsang']">
+            Brand One : {{ brands[0] }} <br/>
+            <span ng-if="brands[1] == 'Palaron'">Brand Two : {{ brands[1] }}</span> <br/>
+            Brand Three : {{ brands[2] }}
+        </p>
+        <hr>
+        <h3><u><i>Example ng-switch</i></u></h3>
+        <p data-ng-init="quantity=7; price=100">
+            Total Price : Rp. {{ total = quantity * price }}
+            Description :
+            <span ng-switch on="total">
+                <b ng-switch-when="600">Cheap</b>
+                <b ng-switch-when="700">Fair Enough</b>
+                <b ng-switch-when="800">Expensive</b>
+                <b ng-switch-default="600">Too Much</b>
+            </span>
+        </p>
+        <hr>
+        <h3><u><i>Example ng-repeat</i></u></h3>
+        <p data-ng-init="brands=[{name: 'Tisaba', price: 700}, {name: 'Palaron', price: 800}, {name: 'Sungsang', price: 900}]">
+            <span ng-repeat="brand in brands track by $index">
+                No: {{ $index }}. Brand : {{ brand.name }}, Price: Rp. {{ brand.price }}<br/>
+            </span>
+        </p>
+        <hr>
+        <h3><u><i>Example Filter</i></u></h3>
+        <p data-ng-init="brands=[{name: 'Tisaba', price: 700}, {name: 'Palaron', price: 800}, {name: 'Sungsang', price: 900}]">
+            <span ng-repeat="brand in brands | filter:'7' track by $index">
+                No: {{ $index }}. Brand : {{ brand.name }}, Price: Rp. {{ brand.price }}<br/>
+            </span>
+        </p>
+        <hr>
+        <h3><u><i>Example Specific Object Filter</i></u></h3>
+        <p data-ng-init="brands=[{name: 'Tisaba', price: 700}, {name: 'Palaron', price: 800}, {name: 'Sungsang', price: 900}]">
+            <span ng-repeat="brand in brands | filter:{name:'t'} track by $index">
+                No: {{ $index }}. Brand : {{ brand.name }}, Price: Rp. {{ brand.price }}<br/>
+            </span>
+        </p>
+        <hr>
+        <h3><u><i>Example Currency</i></u></h3>
+        <p data-ng-init="brands=[{name: 'Tisaba', price: 700}, {name: 'Palaron', price: 800}, {name: 'Sungsang', price: 900}]">
+            <span ng-repeat="brand in brands track by $index">
+                No: {{ $index }}. Brand : {{ brand.name }}, Price: {{ brand.price | currency:"Rp. " }}<br/>
+            </span>
+        </p>
+        <hr>
+        <h3><u><i>Example Number</i></u></h3>
+        <p data-ng-init="brands=[{name: 'Tisaba', price: 700}, {name: 'Palaron', price: 800}, {name: 'Sungsang', price: 900}]">
+            <span ng-repeat="brand in brands track by $index">
+                No: {{ $index }}. Brand : {{ brand.name }}, Price: {{ brand.price | number }}<br/>
+            </span>
+        </p>
+        <hr>
+        <h3><u><i>Example Date</i></u></h3>
+        <span>{{ 1645492687377 | date:'yyyy-mm-dd' }}</span>
+        <hr>
+        <h3><u><i>Example json</i></u></h3>
+        <p data-ng-init="brands=[{name: 'Tisaba', price: 700}, {name: 'Palaron', price: 800}, {name: 'Sungsang', price: 900}]">
+            <!-- will return json with two spaces -->
+            <span>{{ brands | json:2 }}</span>
+        </p>
+        <hr>
+        <h3><u><i>Example Lowercase</i></u></h3>
+        <p data-ng-init="brands=[{name: 'Tisaba', price: 700}, {name: 'Palaron', price: 800}, {name: 'Sungsang', price: 900}]">
+            <span ng-repeat="brand in brands track by $index">
+                No: {{ $index }}. Brand : {{ brand.name | lowercase }}, Price: {{ brand.price | number }}<br/>
+            </span>
+        </p>
+        <hr>
+        <h3><u><i>Example Limit</i></u></h3>
+        <p data-ng-init="brands=[{name: 'Tisaba', price: 700}, {name: 'Palaron', price: 800}, {name: 'Sungsang', price: 900}]">
+            <!-- will return two object from index one -->
+            <span>{{ brands | limitTo:1:0 }}</span>
+        </p>
+        <hr>
+        <h3><u><i>Example OrderBy</i></u></h3>
+        <p data-ng-init="brands=[{name: 'Tisaba', price: 700}, {name: 'Palaron', price: 800}, {name: 'Sungsang', price: 900}]">
+            <span ng-repeat="brand in brands | orderBy:'-name' track by $index">
+                No: {{ $index }}. Brand : {{ brand.name }}, Price: {{ brand.price | number }}<br/>
+            </span>
+        </p>
+        <hr>
+        <h3><u><i>Example ngClick</i></u></h3>
+        <p ng-app ng-click="name='AngularJS'" data-ng-init="name='Click Me'">
+            <span ng-bind="name"></span>
+        </p>
+        <script src="js/angular.js" type="text/javascript"></script>
+    </body>
+</html>
