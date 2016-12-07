@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Training Angular JS 1</title>
+    </head>
+    <body>
+        <!-- Your code here -->
+        <div ng-app="appModule">
+            <div ng-controller="appCtrlUser">
+                <p ng-bind="name">{{ name }}</p>
+                <p>
+                    <span ng-repeat="skill in skills">{{ skill }}<br/></span>
+                </p>
+            </div>
+        </div>
+        <script src="../js/angular.js" type="text/javascript"></script>
+        <script src="../controller/module-file.js" type="text/javascript"></script>
+    </body>
+</html>

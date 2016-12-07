@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Training Angular JS 1</title>
+        <link rel="stylesheet" href="/css/master.css" media="screen" title="no title">
+    </head>
+    <body>
+        <!-- Your code here -->
+        <div ng-app="appModule">
+            <form name="form" novalidate>
+                Vir Name: <input type="text" ng-model="vir.name" name="name" validname required><br>
+                <p ng-show="form.name.$error.validname" class="error">Name only allow character, dot and space</p>
+                <p ng-show="form.name.$error.required" class="error">Name required</p>
+
+                Vir Email: <input type="text" ng-model="vir.email" name="email" validemail required><br>
+                <p ng-show="form.email.$error.validemail" class="error">Email not valid format</p>
+                <p ng-show="form.email.$error.required" class="error">Email required</p>
+
+                Vir Url: <input type="text" ng-model="vir.url" name="url" validurl required><br>
+                <p ng-show="form.url.$error.validurl" class="error">Url not valid format</p>
+                <p ng-show="form.url.$error.required" class="error">Url required</p>
+
+                Vir Age: <input type="text" ng-model="vir.age" name="age" validage required>Year<br>
+                <p ng-show="form.age.$error.validage" class="error">Only allow decimal positif</p>
+                <p ng-show="form.age.$error.required" class="error">Age required</p>
+            </form>
+            <h3>Result Data :</h3>
+            <p ng-bind="vir.name"></p>
+            <p ng-bind="vir.email"></p>
+            <p ng-bind="vir.url"></p>
+            <p ng-bind="vir.age"></p>
+        </div>
+        <script src="../js/angular.js" type="text/javascript"></script>
+        <script src="../validation/module-file.js" type="text/javascript"></script>
+    </body>
+</html>
